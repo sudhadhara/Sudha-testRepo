@@ -17,21 +17,31 @@ public class iFrameAndWindows {
 		WebDriver driver = new ChromeDriver(options);
 
 
-		driver.get("https://demoqa.com/frames");
+		driver.get("https://demoqa.com/nestedframes");
+		driver.manage().window().maximize();
+		
 		Thread.sleep(1000);
+		driver.switchTo().defaultContent();
+		//driver.findElement(By.xpath("//span[text()='Nested Frames']")).click();
+		
+		System.out.println("fetched text ** "+driver.findElement(By.xpath("//iframe[@srcdoc='<p>Child Iframe</p>']")).getText());
+		//driver.switchTo().defaultContent();
+		System.out.println("fetched text ** "+driver.findElement(By.xpath("//iframe[@src='/sampleiframe']")).getText());
+	
+		
 		//System.out.println("fetched text ** "+driver.findElement(By.xpath("//h1[text()='This is a sample page']")).getText());
 		
 		//switch to iFrame using iFrame name or ID
-		driver.switchTo().frame("frame1");
-		System.out.println("fetched text ** "+driver.findElement(By.xpath("//h1[text()='This is a sample page']")).getText());
+		//driver.switchTo().frame("frame1");
+		//System.out.println("fetched text ** "+driver.findElement(By.xpath("//h1[text()='This is a sample page']")).getText());
 
 		//switch to iFrame using iFrame index
 		//driver.switchTo().frame(4);
 		
 		//switch back to default window
-		driver.switchTo().defaultContent();
+		//driver.switchTo().defaultContent();
 
-		System.out.println("fetched text ** "+driver.findElement(By.xpath("//h1[text()='Frames']")).getText());
+		//System.out.println("fetched text ** "+driver.findElement(By.xpath("//h1[text()='Frames']")).getText());
 
 		driver.quit();
 	    
