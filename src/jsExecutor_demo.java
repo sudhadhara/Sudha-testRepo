@@ -46,7 +46,7 @@ public class jsExecutor_demo {
 //        //verticalScrollBy1000px
         js.executeAsyncScript("window.scrollBy(0,document.body.scrollHeight)");
         
-		//driver.quit();
+		driver.quit();
 
 	}
 }
